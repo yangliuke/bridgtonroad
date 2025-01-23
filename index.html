@@ -18,19 +18,51 @@
       src: local('Libre Baskerville'),
            url(https://fonts.gstatic.com/s/librebaskerville/v14/kmKnZrc3Hgbbcjq75U4uslyuy4kn0qNZaxM.woff2) format('woff2');
     }
-    body {
-      font-family: Georgia, serif;
-      line-height: 1.6;
-      font-size: 8px;
+    @font-face {
+      font-family: 'Almarai';
+      font-style: normal;
       font-weight: 400;
+      font-display: optional;
+      src: url(https://fonts.gstatic.com/s/almarai/v12/tsstApxBaigK_hnnQ1iFow.woff2) format('woff2');
+    }
+    body {
+      font-family: 'Libre Baskerville';
+      line-height: 1.6;
+      font-size: 14px;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
     }
     .fonts-loaded body {
+      font-family: 'Libre Baskerville';
+    }
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: white;
+      padding: 20px 0;
+      z-index: 100;
+    }
+    
+    .nav h1 {
+      margin: 0;
+      padding: 0 20px;
+      font-size: 20px;
+      font-weight: 300;
+      padding-top: 10px;
+      max-width: 800px;
+      margin: 0 auto;
       font-family: 'Libre Baskerville', Georgia, serif;
     }
+
     .content {
-      margin: 60px 20px 20px 100px;
+      margin: 120px auto 60px;  /* Increased top margin to account for fixed nav */
       width: 90%;
-      max-width: 500px;
+      max-width: 800px;
+      padding: 0 20px;
     }
     .title {
       margin-top: 20px;
@@ -39,9 +71,26 @@
       font-weight: bold;
       color: #000000;
     }
+    .about-heading {
+      font-size: 30px;
+      margin-bottom: 24px;
+      padding-top: 90px;  /* Added padding above About heading */
+      font-weight: 300;
+      font-family: 'Libre Baskerville', Georgia, serif;
+    }
+    .about-text {
+      font-family: 'Almarai', sans-serif;
+      text-align: justify;
+      max-width: 650px;  /* Increased from 600px to 650px */
+      margin: 0;         /* Remove auto margins to align with h2 */
+    }
+    .rate-text {
+      font-family: 'Almarai', sans-serif;
+    }
     @media (max-width: 767px) {
       .content {
-        margin: 30px 10px 10px 10px;
+        margin: 30px auto;
+        padding: 0 10px;
       }
     }
     ::selection {
@@ -54,15 +103,41 @@
       list-style: none;
       padding-left: 0;
     }
+    .footer {
+      text-align: center;
+      padding: 100px 0 40px 0;  /* Increased top padding from 40px to 80px */
+      font-family: 'Almarai', sans-serif;
+      text-align: justify;
+      max-width: 650px;
+      margin: 0;   
+    }
   </style>
 </head>
 
 <body>
-    <main class="content">
+    <nav class="nav">
         <h1>
-            Bridgton Road Investments LLC is a concentrated global long-only investment firm.
+            Bridgton Road Investments LLC
         </h1>
+    </nav>
+    
+    <main class="content">
+        <h2 class="about-heading">About</h2>
+        
+        <p class="about-text">
+            Bridgton Road Investments LLC ("Bridgton Road") is a concentrated global long-only investment firm. Our strategy specializes in identifying niche market leaders with defendable competitive advantages. We seek out smaller-scale monopolies — companies that have built impenetrable moats within their specific market segments.
+        </p>
+        <br>
+        <p class="about-text">
+            Through deep fundamental research and a focused portfolio of carefully selected companies, we aim to compound capital at exceptional rates over long holding periods.
+        </p>
     </main>
+    
+    <div class="content">
+        <footer class="footer">
+            All rights reserved.
+        </footer>
+    </div>
     
     <!-- Deferred font loading -->
     <script async>
